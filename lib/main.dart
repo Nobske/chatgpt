@@ -1,5 +1,6 @@
 import 'package:chatgpt/view/splash_screen.dart';
 import 'package:flutter/material.dart';
+//init
 
 void main() {
   runApp(const MyApp());
