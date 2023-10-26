@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:chat_gpt_flutter/chat_gpt_flutter.dart';
-import 'package:chatgpt/api_key.dart';
 import 'package:chatgpt/model/question_answer.dart';
 import 'package:chatgpt/theme.dart';
 import 'package:chatgpt/view/components/chatgpt_answer_widget.dart';
@@ -9,6 +8,7 @@ import 'package:chatgpt/view/components/loading_widget.dart';
 import 'package:chatgpt/view/components/text_input_widget.dart';
 import 'package:chatgpt/view/components/user_question_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -29,8 +29,11 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   void initState() {
+    String openAIApiKey = dotenv.env['OPENAI_API_KEY'] ?? "your_api_key_here";
+
     inputQuestionController = TextEditingController();
     scrollController = ScrollController();
+
     chatGpt = ChatGpt(apiKey: openAIApiKey);
     super.initState();
   }
@@ -53,7 +56,7 @@ class _ChatScreenState extends State<ChatScreen> {
         shadowColor: Colors.white12,
         centerTitle: true,
         title: Text(
-          "ChatGPT",
+          "Nobske's ChatGPT",
           style: kWhiteText.copyWith(fontSize: 20, fontWeight: kSemiBold),
         ),
         backgroundColor: kBg300Color,

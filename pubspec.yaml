@@ -12,7 +12,8 @@ dependencies:
   google_fonts: ^4.0.3
   iconsax: ^0.0.8
   flutter_spinkit: ^5.1.0
-  chat_gpt_flutter: ^1.0.6
+  chat_gpt_flutter: '>=1.0.0 <3.0.0'
+  flutter_dotenv: ^5.1.0  # check for the latest version on pub.dev
   freezed: ^2.3.2
   freezed_annotation: ^2.2.0
   build_runner: ^2.3.3
@@ -25,3 +26,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - .env

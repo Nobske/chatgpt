@@ -13,7 +13,14 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 2000)).then((value) {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _navigateAfterDelay();
+    });
+  }
+
+  Future<void> _navigateAfterDelay() async {
+    Future.delayed(const Duration(milliseconds: 10000)).then((value) {
       Navigator.of(context).pushReplacement(PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
             const ChatScreen(),
@@ -32,7 +39,6 @@ class _SplashScreenState extends State<SplashScreen> {
         },
       ));
     });
-    super.initState();
   }
 
   @override
